@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Lista de Jugadores</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/estilos/estilo.css">
-</head>
-<body>
+<?php 
+if(!$_SESSION["validar"]){
+  echo "<script>location.href='ingreso';</script>";
+  exit();
+}
+include "views/modules/menu.php";
+?>
+
   <div class="container">
     <div class="row">
       <!-- <title>Home</title> -->
@@ -18,15 +15,17 @@
 
       <!-- Agregar Jugador -->
       <div class="col-md-12">
-        <button type="button" class="btn btn-primary" id="btn-agregar-jugador" name="button">Agregar Jugador</button>
+        <button type="button" class="btn btn-primary" id="btn-agregar-jugador" name="button" data-toggle="modal" data-target="#form-add-player">Agregar Jugador</button>
       </div>
+      <!-- Fin de boton agregar a jugador -->
+
       <!-- Tarjeta de Jugador -->
       <div class="col-md-12">
           <form class="form-group mt-3">
             <input type="text" id="searchInput" onkeyup="searchPlayer()" class="form-control" placeholder="Buscar por Nombre/C.I N/Club">
           </form>
         <div class="table-responsive-sm">
-          <table class="table"">
+          <table class="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -65,6 +64,64 @@
         </div>
       </div>
 
+      <!-- Form Add Player -->
+      <!-- Modal -->
+      <div id="form-add-player" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Agregar Jugador</h4>
+            </div>
+            <div class="modal-body">
+              <form action="#" method="post" class="form-group">
+                <div class="row">
+                  <div class="col">
+                    <label for="name">Nombre</label>
+                    <input type="text" name="name" id="name" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="last-name">Apellido</label>
+                    <input type="text" name="last-name" id="last-name" class="form-control">
+                  </div>                
+                  <div class="col-md-12">
+                    <label for="cin">Cedula de Identidad</label>
+                    <input type="text" name="cin" id="cin" class="form-control">
+                  </div> 
+                  <div class="col-md-12">
+                    <label for="birthday">Fecha de Nacimiento</label>
+                    <input type="date" name="birthday" id="birthday" class="form-control">
+                  </div>
+                  <div class="col-md-12">
+                    <label for="register-number">Numero de Registro</label>
+                    <input type="text" name="register-number" id="register-number" class="form-control">
+                  </div>
+                  <div class="col-md-12">
+
+                    <label for="club">Elegir Club</label>
+                    <select name="club" id="club" class="form-control
+                    ">
+                      <option value="1">Club 1</option>
+                      <option value="2">Club 2</option>
+                      <option value="3">Club 3</option>
+                    </select>
+                  </div>                                      
+                </div>
+              </form>
+              
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- End of Form add Player -->
+
       <!-- Tarjeta de Jugador -->
     </div>
   </div>
@@ -101,5 +158,3 @@
     }
   }
   </script>
-</body>
-</html>
