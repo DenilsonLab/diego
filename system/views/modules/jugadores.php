@@ -38,27 +38,21 @@ include "views/modules/menu.php";
               </tr>
             </thead>
             <tbody  id="listPlayer">
+                  <?php $mostrar_jugadores = JugadoresController::mostrarJugadoresController(); 
+                        $contador = 1;
+                  ?>
+                  <?php foreach ($mostrar_jugadores as $key => $value): ?>              
               <tr>
-                <th scope="row">1</th>
-                <td>Jhon</td>
-                <td>Doe</td>
-                <td>000000</td>
-                <td>12/12/1800</td>
-                <td>5567</td>
-                <td>Tte. Chena Molinas</td>
-                <td><button class="btn btn-primary">Editar</button></td>
+                    <td scope="row"><?php echo $contador++; ?></td>
+                    <td><?php echo $value[1]; ?></td>
+                    <td><?php echo $value[2]; ?></td>
+                    <td><?php echo $value[3]; ?></td>
+                    <td><?php echo $value[4]; ?></td>
+                    <td><?php echo $value[5]; ?></td>
+                    <td><?php echo $value[6]; ?></td>
+                    <td><a class="btn btn-primary" href="editar/jugador/<?php echo $value[0]; ?>">Editar</a></td>
               </tr>
-
-              <tr>
-                <th scope="row">2</th>
-                <td>Jane</td>
-                <td>Doe</td>
-                <td>111111</td>
-                <td>12/12/1900</td>
-                <td>5568</td>
-                <td>Sol de America</td>
-                <td><button class="btn btn-primary">Editar</button></td>
-              </tr>
+              <?php endforeach ?> 
             </tbody>
           </table>
         </div>
@@ -71,9 +65,9 @@ include "views/modules/menu.php";
 
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div class="modal-header">   
               <h4 class="modal-title">Agregar Jugador</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
               <form action="#" method="post" class="form-group">
@@ -103,11 +97,16 @@ include "views/modules/menu.php";
                     <label for="club">Elegir Club</label>
                     <select name="club" id="club" class="form-control
                     ">
-                      <option value="1">Club 1</option>
-                      <option value="2">Club 2</option>
-                      <option value="3">Club 3</option>
+                      <?php $mostrar_club = ClubController::mostrarClubController(); ?>
+                      <?php foreach ($mostrar_club as $key => $value): ?>
+                        <option value="<?php echo $value[0] ?>"><?php echo $value[3] ?></option>
+                      <?php endforeach ?>
                     </select>
-                  </div>                                      
+                  </div> 
+                  <div class="col-md-12">
+                    <button type="submit" class=" mt-3 btn btn-primary">Registrar</button>
+                  </div> 
+                  <?php $insertar = JugadoresController::insertarJugadorController(); ?>                                    
                 </div>
               </form>
               

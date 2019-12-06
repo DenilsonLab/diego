@@ -11,7 +11,10 @@ class RutaModels{
            $enlaces == "clientes" OR
            $enlaces == "aranceles" OR
            $enlaces == "ingreso" OR
-           $enlaces == "salir"  
+           $enlaces == "salir"  OR
+           $enlaces == "editar" OR
+           $enlaces == "ventas"  OR
+           $enlaces == "facturas"
        ){
 
 			$module = "views/modules/".$enlaces.".php";
@@ -19,6 +22,8 @@ class RutaModels{
 
 		else if($enlaces == "index"){
 			$module = "views/modules/inicio.php";
+		}else if($enlaces == "password"){
+			$module = "views/modules/change-pass.php";
 		}else{
 			$module = "views/modules/inicio.php";
 		}

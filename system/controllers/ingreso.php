@@ -40,6 +40,7 @@ class Ingreso{
 						$_SESSION["usuario"] = $respuesta["nick"];
 						$_SESSION["nombre"]  = $respuesta["nombre"];
 						$_SESSION["cargo"]	 = $respuesta["cargo"];
+						setcookie('id', $respuesta["id_usu"]);
 
 						echo "<script>location.href='inicio';</script>";;
 

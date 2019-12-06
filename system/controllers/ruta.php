@@ -7,6 +7,9 @@ class Ruta{
 		if(isset($_GET["action"])){
 
 			$enlaces = $_GET["action"];
+			$enlaces = explode("/", $enlaces);
+			$enlaces = $enlaces[0];
+
 
 		}
 

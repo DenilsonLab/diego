@@ -7,7 +7,7 @@
         </div>
           <div class="col-md-4 col-xs-12 bg-secondary text-white d-block mt-5 opacity-5 mr-auto ml-auto ">
             <div class="col-md-12">
-              <h2 class="text-center">Inicie Sesion</h2>
+              <h2 class="text-center">Entrar al Sistema</h2>
             </div>
             <form action="" method="post" class="form-group center" >
               <div class="col-md-12 mt-3">
@@ -19,7 +19,7 @@
                 <input type="password" id="password" name="passwordIngreso" class="form-control">
               </div>
               <div class="col-md-12 mt-4">
-                <button type="submit"  class="btn btn-primary d-block m-auto" name="button">Inciar Sesion</button>
+                <button type="submit"  class="btn btn-primary d-block m-auto" name="button">Entrar <span class="fa fa-arrow-right"></span></button>
               </div>
               <?php 
                   $ingreso = new Ingreso();

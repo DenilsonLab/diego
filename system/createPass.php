@@ -1,4 +1,7 @@
-
+<?php 
+require_once "controllers/factura.php";
+require_once "models/factura.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

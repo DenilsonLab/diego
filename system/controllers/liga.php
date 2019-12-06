@@ -20,7 +20,11 @@ class LigaController
 				$insertar = LigaModel::insertarLigaModel("liga", $liga_name, $liga_ruc);
 				if ($insertar == "ok") {
 					echo "<script>location.href='ligas';</script>";;
-				}else{
+				}else if ($insertar = 'existe') {
+					echo '<script>
+  							alert("ERROR. Esa liga ya existe");
+						  </script>';				}
+				else{
 					echo '<div class="alert alert-danger error">
   							<strong>ERROR</strong> Ocurrio un error al guardar los Datos.
 						  </div>';
