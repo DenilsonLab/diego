@@ -1,12 +1,15 @@
 <?php 
 if (isset($_SESSION["validar"])) {
-	
-	if(!$_SESSION["validar"]){
-		echo "<script>location.href='ingreso';</script>";
-		exit();
-	  
-	}
-	include "views/modules/menu.php";
+  
+  if(!$_SESSION["validar"]){
+    echo "<script>location.href='ingreso';</script>";
+    exit();
+    
+  }
+  include "views/modules/menu.php";
+}else{
+    echo "<script>location.href='ingreso';</script>";
+    exit();
 }
 ?>
 

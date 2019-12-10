@@ -7,6 +7,9 @@ if (isset($_SESSION["validar"])) {
     
   }
   include "views/modules/menu.php";
+}else{
+    echo "<script>location.href='ingreso';</script>";
+    exit();
 }
 ?>
 

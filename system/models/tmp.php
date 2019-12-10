@@ -24,7 +24,7 @@ class TmpModel
 	}
 
 	static public function verTmpModel($tabla){
-		$stmt = Conexion::conectar()->prepare("SELECT tmp.id, ara.descripcion, tmp.cantidad, tmp.precio FROM $tabla AS tmp INNER JOIN aranceles AS ara ON tmp.arancel_id = ara.id_arancel");	
+		$stmt = Conexion::conectar()->prepare("SELECT tmp.id, ara.descripcion, tmp.cantidad, tmp.precio, tmp.arancel_id FROM $tabla AS tmp INNER JOIN aranceles AS ara ON tmp.arancel_id = ara.id_arancel");	
 		$stmt->execute();
 
 		return $stmt->fetchAll();

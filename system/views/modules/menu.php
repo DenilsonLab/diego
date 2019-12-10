@@ -9,12 +9,17 @@ if (isset($_SERVER["HTTPS"])) {
 
 ?>
 
-
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<div class="container solo-movil ">
+  <div class="col-md-12 text-center text-menu">
+    Liga System
+  </div>
+  
+</div>
+<nav class="navbar navbar-expand-md navbar-light">
+  <div class="container">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu-responsive" aria-controls="menu-responsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">Liga System</a>
       <div class="collapse navbar-collapse white-text" id="menu-responsive">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item active">
@@ -45,7 +50,7 @@ if (isset($_SERVER["HTTPS"])) {
         </ul>
         <ul class=" nav navbar-nav navbar-right">
            <li class="nav-item active ">
-            <a class="nav-link" href="perfil" id="perfil-dropdown" data-toggle="dropdown" aria-expanded="false"><span class="fa fa-user mr-1" ></span>Perfil</a>
+            <a class="nav-link" href="perfil" id="perfil-dropdown" data-toggle="dropdown" aria-expanded="false"><span class="fa fa-user mr-1" ></span style="text-transform: uppercase;">HOLA, <?php echo $_SESSION["nombre"]?></a>
             <div class="dropdown-menu dropdown-menu-right " aria-labelledby="perfil-dropdown">
               <a class="dropdown-item" href="password">Modificar Contraseña</a>
               <a class="dropdown-item" href="salir">Salir del Sistema</a>
@@ -53,5 +58,6 @@ if (isset($_SERVER["HTTPS"])) {
           </li>
         </ul>
 
-      </div>      
+      </div>  
+  </div>        
 </nav>

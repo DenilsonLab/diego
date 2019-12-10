@@ -1,13 +1,13 @@
 
 
-   <div class="container">
+   <div class="container ">
       <div class="row ">
         <div class="col-md-12 mt-5">
           <h1 class="title text-center">Liga System</h1>
         </div>
-          <div class="col-md-4 col-xs-12 bg-secondary text-white d-block mt-5 opacity-5 mr-auto ml-auto ">
+          <div class="col-md-4 rounded col-xs-12 bg-info text-white d-block mt-5 opacity-5 mr-auto ml-auto shadow">
             <div class="col-md-12">
-              <h2 class="text-center">Entrar al Sistema</h2>
+              <h2 class="text-center mt-3 mb-3">Entrar al Sistema</h2>
             </div>
             <form action="" method="post" class="form-group center" >
               <div class="col-md-12 mt-3">

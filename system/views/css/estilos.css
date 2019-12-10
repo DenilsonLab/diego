@@ -1,10 +1,47 @@
-  .nav-item:hover{
-    background-color: #009bff;
-  }
+
+
+.nav-item{
+	padding: 10px;
+	padding-left: 0px;
+	padding-right: 0px;
+	text-transform: uppercase;
+}
+.nav-item:hover{
+  border-bottom: 2px solid #009bff;
+} 
+nav {
+ padding: 0px !important;
+ box-shadow: 0px 0px 5px 0px black;
+}
+.solo-movil{
+	display: none;
+}
+
 .inicio-title{
 	font-size: 40px;
 	font-weight: 400 !important;
 }
 .dashboard-icon{
 	font-size: 70px;
+}
+
+@media (max-width: 600px){
+	.solo-movil{
+		display: block;
+	}
+	.nav-item{
+		padding: 5px;
+		font-size: 15px;
+		
+	}
+	.nav-item:hover{
+	  border-bottom: 1px solid #009bff;
+	} 
+	.text-menu{
+		font-size: 30px;
+	}
+	nav {
+	 padding: 10px !important;
+	 box-shadow: -5px 3px 6px 0px black;
+	}	
 }

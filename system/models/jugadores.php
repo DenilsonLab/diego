@@ -25,7 +25,7 @@ class JugadoresModel
 		$stmt->close();
 	}
 	static public function mostrarJugadoresModel($tabla){
-		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");	
+		$stmt = Conexion::conectar()->prepare("SELECT j.id_jugador, j.nombre, j.apellido, j.cin, j.fecha_nac, j.nro_registro, c.nombre, j.estado FROM $tabla AS j INNER JOIN club AS c ON j.Club_id_club = c.id_club WHERE j.estado != 'inactivo'");	
 		$stmt->execute();
 
 		return $stmt->fetchAll();
@@ -40,6 +40,15 @@ class JugadoresModel
 		$stmt->execute();
 
 		return $stmt->fetchAll();
+
+		$stmt->close();
+	}
+	static public function borrarJugadorPorIdModel($id){
+		$stmt = Conexion::conectar()->prepare("UPDATE jugador SET estado = 'inactivo' WHERE id_jugador = :id");
+		$stmt->bindParam(":id", $id, PDO::PARAM_INT);		
+		$stmt->execute();
+
+		return $stmt;
 
 		$stmt->close();
 	}

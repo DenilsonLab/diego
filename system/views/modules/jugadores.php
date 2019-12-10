@@ -7,6 +7,9 @@ if (isset($_SESSION["validar"])) {
     
   }
   include "views/modules/menu.php";
+}else{
+    echo "<script>location.href='ingreso';</script>";
+    exit();
 }
 ?>
 
@@ -46,7 +49,7 @@ if (isset($_SESSION["validar"])) {
                         $contador = 1;
                   ?>
                   <?php foreach ($mostrar_jugadores as $key => $value): ?>              
-              <tr>
+              <tr id="jugador-id-<?php echo $value[0]; ?>">
                     <td scope="row"><?php echo $contador++; ?></td>
                     <td><?php echo $value[1]; ?></td>
                     <td><?php echo $value[2]; ?></td>
@@ -55,6 +58,7 @@ if (isset($_SESSION["validar"])) {
                     <td><?php echo $value[5]; ?></td>
                     <td><?php echo $value[6]; ?></td>
                     <td><a class="btn btn-primary" href="editar/jugador/<?php echo $value[0]; ?>">Editar</a></td>
+                    <td><button class="btn btn-danger" onclick="eliminarJugador(<?php echo $value[0]; ?>)"><span class="fa fa-trash"></span></button></td>
               </tr>
               <?php endforeach ?> 
             </tbody>
@@ -160,4 +164,20 @@ if (isset($_SESSION["validar"])) {
       }
     }
   }
+
+function eliminarJugador(id){
+  $.ajax({
+
+      type: "post",
+      url:'ajax/jugador.php',
+      data: {eliminar:id},
+      success:function(data){
+        alert("El Jugador se eliminó");
+        $("#jugador-id-"+id).hide(300, function(){
+          $(this).remove();
+        })
+      }
+
+  })
+}
   </script>

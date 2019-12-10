@@ -1,12 +1,16 @@
 <?php 
 if (isset($_SESSION["validar"])) {
-	
-	if(!$_SESSION["validar"]){
-		echo "<script>location.href='ingreso';</script>";
-		exit();
-	  
-	}
-	include "views/modules/menu.php";
+  
+  if(!$_SESSION["validar"]){
+    echo "<script>location.href='ingreso';</script>";
+    exit();
+    
+  }
+  include "views/modules/menu.php";
+}else{
+    echo "<script>location.href='ingreso';</script>";
+    exit();
+}
 }
 ?>
 
@@ -40,9 +44,7 @@ if (isset($_SESSION["validar"])) {
 						<input type="text" name="fecha" class="form-control" value="<?php echo date("d-m-Y"); ?>"> 
 						<br>						
 						<span>Vendedor: <strong><?php echo $_SESSION['nombre']; ?></strong> </span>
-						<br>
-						<span>RUC: <strong>xxxxxxxx</strong></span>	
-
+						<br>	
 				
 					</div>
 					<div class="col-md-3">
@@ -231,7 +233,10 @@ $("#guardar-factura").on("click", function(){
 						alert('La factura no puede ir vacia');
 					}else{
 						alert('Factura Generada');
-						window.open("pdf.php?id_factura="+data, "Factura", "width=1, height=1")						
+						
+						window.open("pdf.php?id_factura="+data);
+						location.reload();
+
 					}
 					
 
